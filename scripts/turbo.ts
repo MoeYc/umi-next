@@ -1,19 +1,20 @@
-import * as logger from '@umijs/utils/src/logger';
 import spawn from '@umijs/utils/compiled/cross-spawn';
 import yArgs from '@umijs/utils/compiled/yargs-parser';
+import * as logger from '@umijs/utils/src/logger';
 import { join } from 'path';
 
 (async () => {
   const args = yArgs(process.argv.slice(2));
-  const scope = args.scope || '!@example/*';
   const extra = (args._ || []).join(' ');
+  const filter = args.scope ? undefined : args.filter || `./packages/*`;
 
   await turbo({
     cmd: args.cmd,
-    scope,
+    scope: args.scope,
     extra,
     cache: args.cache,
     parallel: args.parallel,
+    filter,
   });
 })();
 
@@ -39,11 +40,12 @@ async function cmd(command: string) {
 }
 
 async function turbo(opts: {
-  scope: string;
+  scope?: string;
   cmd: string;
   extra?: string;
   cache?: boolean;
   parallel?: boolean;
+  filter?: string;
 }) {
   const extraCmd = opts.extra ? `-- -- ${opts.extra}` : '';
   const cacheCmd = opts.cache === false ? '--no-cache --force' : '';
@@ -52,7 +54,8 @@ async function turbo(opts: {
   const options = [
     opts.cmd,
     `--cache-dir=".turbo"`,
-    `--scope="${opts.scope}"`,
+    opts.scope && `--scope="${opts.scope}"`,
+    opts.filter && `--filter="${opts.filter}"`,
     `--no-deps`,
     `--include-dependencies`,
     cacheCmd,

@@ -8,4 +8,5 @@ export default {
     '<rootDir>/packages/.+/fixtures',
   ],
   cacheDirectory: '.jest-cache',
+  reporters: ['default', process.env.CI && 'github-actions'].filter(Boolean),
 } as Config.InitialOptions;

@@ -11,10 +11,11 @@ export default defineConfig({
       './packages/*/fixtures',
     ],
     testTimeout: process.env.CI ? 50000 : 20000,
-    setupFiles: ['./setupBefore.ts'],
-    globalSetup: ['./setupFile.ts'],
+    // setupFiles: ['./setupBefore.ts'],
+    setupFiles: ['./setup.ts'],
+    // globalSetup: ['./setupFile.ts'],
     // setupFiles: ['./setupFile.js'],
-    threads: false,
+    // threads: false,
     // env: {
     //   NODE_ENV: 'test'
     // }

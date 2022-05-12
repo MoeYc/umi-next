@@ -50,7 +50,7 @@ test('export member', () => {
 });
 
 // depends on exportDefaultFrom syntax
-xtest('export default', () => {
+test.skip('export default', () => {
   expect(doTransform({ code: `export a from 'a';`, opts: {} })).toEqual(
     `export a from "mf/a";`,
   );

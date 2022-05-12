@@ -44,7 +44,7 @@ test('test generate nested named component foo/bar/qux', async () => {
 });
 
 async function runGeneratorWith(name: string) {
-  const generateFile = jest.fn();
+  const generateFile = vi.fn();
 
   const cg = new ComponentGenerator({
     componentName: name,

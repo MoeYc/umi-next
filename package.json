@@ -56,6 +56,7 @@
     "@umijs/server": "workspace:*",
     "@umijs/utils": "workspace:*",
     "@vercel/ncc": "0.33.3",
+    "@xn-sakina/phoenix": "^1.0.2",
     "dts-packer": "^0.0.3",
     "esno": "^0.14.1",
     "expect-playwright": "^0.8.0",
@@ -82,6 +83,7 @@
     "uglify-js": "^3.15.4",
     "umi": "workspace:*",
     "umi-scripts": "workspace:*",
+    "vitest": "^0.12.4",
     "zx": "^4.3.0"
   },
   "packageManager": "pnpm@6.20.0",

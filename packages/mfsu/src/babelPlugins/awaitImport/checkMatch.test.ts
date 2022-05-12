@@ -72,7 +72,7 @@ test('absolute path within node_modules', () => {
   ).toEqual({ isMatch: true, replaceValue: 'mf//foo/node_modules/bar' });
 });
 
-xtest('absolute path within umi/packages', () => {
+test.skip('absolute path within umi/packages', () => {
   expect(
     checkMatch({
       value: '/foo/umi-next/packages/bar',

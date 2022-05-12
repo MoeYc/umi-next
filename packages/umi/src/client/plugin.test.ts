@@ -7,8 +7,8 @@ test('PluginManager#applyPlugins in async=false mode', async () => {
     validKeys: ['foo'],
   });
 
-  const asyncCall = jest.fn();
-  const syncCall = jest.fn();
+  const asyncCall = vi.fn();
+  const syncCall = vi.fn();
 
   pm.register({
     apply: {
@@ -41,8 +41,8 @@ test('PluginManager#applyPlugins in async=true mode', async () => {
     validKeys: ['foo'],
   });
 
-  const asyncCall = jest.fn();
-  const syncCall = jest.fn();
+  const asyncCall = vi.fn();
+  const syncCall = vi.fn();
 
   pm.register({
     apply: {
